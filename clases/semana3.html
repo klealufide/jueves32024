@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Semana 3</title>
+    <style>
+        * {
+            color: blue;
+        }
+
+        h2 {
+            color: violet;
+        }
+
+        .tituloDiferente {
+            color: red;
+        }
+
+        #titulo2 {
+            color: green;
+        }
+
+        .hijoPadre1 p {
+            color: green;
+        }
+
+        .padre1>p {
+            color: magenta;
+        }
+
+        .padre1+p {
+            color: black;
+        }
+
+        .padre1 h3~p {
+            color: cadetblue;
+        }
+
+        .caja {
+            width: 200px;
+            height: 200px;
+            border: 4px solid salmon;
+            background-color: blanchedalmond;
+            padding: 50px;
+            margin: 20px;
+        }
+        .contenedor-flex{
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            background-color: aqua;
+            padding: 20px;
+        }
+        .item{
+            background-color: lightcoral;
+            padding: 20px;
+            margin: 5px;
+            border-color: coral;
+        }
+
+        .contenedor-grid{
+            display: grid;
+            background-color: aqua;
+            grid-template-columns: repeat(6, 1fr);
+            margin: 20px;
+        }
+        .item-grid{
+            background-color: lightcoral;
+            padding: 20px;
+            margin: 5px;
+            border-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Semana3</h1>
+    <h2>Titulo h2</h2>
+    <h2 class="tituloDiferente">Titulo h2</h2>
+    <h2>Titulo h2</h2>
+    <h2 id="titulo2" class="tituloDiferente">Titulo h2</h2>
+    <p>Esto es parrafo</p>
+    <p class="tituloDiferente">Esto es parrafo</p>
+
+    <div class="padre1">
+        <h3>Titulo Padre1</h3>
+        <p>parrafo1</p>
+        <p>parrafo2</p>
+        <p>parrafo3</p>
+        <div class="hijoPadre1">
+            <p>ParrafoHijo1</p>
+            <p>ParrafoHijo2</p>
+            <p>ParrafoHijo3</p>
+        </div>
+    </div>
+    <p>
+        Elemento inmediato
+    </p>
+    <p>
+        Elemento segundo
+    </p>
+    <div class="caja">
+        <p>Parrafo</p>
+    </div>
+
+    <!--FLEXBOX-->
+
+    <div class="contenedor-flex">
+        <div class="item">ELEMENTO1</div>
+        <div class="item">ELEMENTO2</div>
+        <div class="item">ELEMENTO3</div>
+    </div>
+
+    <!--FLEXBOX-->
+
+    <div class="contenedor-grid">
+        <div class="item-grid">ELEMENTO1</div>
+        <div class="item-grid">ELEMENTO2</div>
+        <div class="item-grid">ELEMENTO3</div>
+        <div class="item-grid">ELEMENTO4</div>
+        <div class="item-grid">ELEMENTO1</div>
+        <div class="item-grid">ELEMENTO2</div>
+        <div class="item-grid">ELEMENTO3</div>
+        <div class="item-grid">ELEMENTO4</div>
+    </div>
+
+</body>
+
+</html>
