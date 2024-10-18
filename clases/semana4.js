@@ -113,6 +113,11 @@ document.body.append(nuevoElemento);
 
 document.getElementById("saludar").addEventListener("click",function(){
     let saludo = document.getElementById("saludo");
+    let email = document.getElementById("email").value;
+    if(email != ""){
+        
+    }
+    console.log(email);
     saludo.innerHTML = "Hola Semana 5";
     alert("Hola!!");
 })
