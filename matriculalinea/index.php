@@ -12,10 +12,10 @@
     <header>
         <nav>
             <ul class="menu">
-                <li class="menu-item"><a href="index.html">Inicio</a></li>
+                <li class="menu-item"><a href="index.php">Inicio</a></li>
                 <li class="menu-item"><a href="#">Informacion</a></li>
                 <li class="menu-item"><a href="#">Matricula</a></li>
-                <li class="menu-item"><a href="#">Contacto</a></li>
+                <li class="menu-item"><a href="contact.php">Contacto</a></li>
             </ul>
         </nav>
         <h1>Bienvenidos a la Matricula en Linea de Aserri</h1>
@@ -68,10 +68,9 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Ambiente Cliente Web Servidor - Todos los derechos reservados</p>
-        <p><a href="privacidad.html">Politica de privacidad</a> | <a href="terminos.html">Terminos y condiciones</a></p>
-    </footer>
+    <?php
+    include("footer.php");
+    ?>
 </body>
 
 </html>
