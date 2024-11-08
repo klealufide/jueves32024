@@ -1,0 +1,6 @@
+este es mi primer archivo en php.
+este es mi primer archivo en php1.
+este es mi primer archivo en php2.
+este es mi primer archivo en php3.
+este es mi primer archivo en php4.
+este es mi primer archivo en php5.
