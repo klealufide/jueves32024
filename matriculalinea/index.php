@@ -9,18 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul class="menu">
-                <li class="menu-item"><a href="index.php">Inicio</a></li>
-                <li class="menu-item"><a href="#">Informacion</a></li>
-                <li class="menu-item"><a href="#">Matricula</a></li>
-                <li class="menu-item"><a href="contact.php">Contacto</a></li>
-            </ul>
-        </nav>
-        <h1>Bienvenidos a la Matricula en Linea de Aserri</h1>
-        <p>La mejor opcion para registrar a sus hijos en nuestra escuela.</p>
-    </header>
+    <?php include('header.php') ?>
     <main>
         <section>
             <h2>Por que eligir nuestra escuela?</h2>

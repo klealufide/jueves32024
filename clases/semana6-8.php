@@ -155,9 +155,27 @@
         echo $linea . "<br>";
     }
     fclose($archivo);
-    
+
+    try {
+        $archivo = fopen("miarchivo.txt", "r");
+        if (!$archivo) {
+            throw new Exception("No se puede abrir el archivo");
+        }
+        while (!feof($archivo)) {
+            $linea = fgets($archivo);
+            echo $linea . "<br>";
+        }
+        fclose($archivo);
+    } catch (Exception $e) {
+        echo "Se ha producido un error";
+    }
+
+
     //print_r($_GET);
-//echo $_GET["nombre"];
+    //echo $_GET["nombre"];
+
+
+    //get post
 
     ?>
     <h2>Formulario </h2>
