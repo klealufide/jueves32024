@@ -54,3 +54,18 @@ if($conn->query($query) ==  TRUE){
 } else {
     echo "Error al borrar el registro <br>";   
 }
+
+// HASH 
+
+$clave = "123456";
+
+//$hash_password = password_hash($clave,PASSWORD_BCRYPT);
+$hash_password = '$2y$10$Ctizas6D9KaCgYnwGxTHKOnathqZpXtskLBKtSnJl7GjQT6KUKCcC4';
+echo $clave."<br>";
+echo $hash_password;
+
+if(password_verify($clave,$hash_password)){
+    echo "El hash es igual al password";
+} else {
+    echo "El password no corresponde al hash";
+}

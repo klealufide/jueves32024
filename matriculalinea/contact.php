@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (empty($_SESSION)) {
+    header("Location: login.php");
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +15,6 @@
     <title>Matricula en linea</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<?php 
+<?php
 include("footer.php");
 ?>
