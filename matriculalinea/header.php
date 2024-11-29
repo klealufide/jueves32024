@@ -2,8 +2,8 @@
 session_start();
 $listadoItems =  [
     ["url" => "index.php", "title" => "Inicio"],
-    ["url" => "#", "title" => "Informacion"],
-    ["url" => "#", "title" => "Matricula"],
+    ["url" => "information.php", "title" => "Informacion"],
+    ["url" => "registration.php", "title" => "Matricula"],
     ["url" => "contact.php", "title" => "Contacto"],
     ["url" => "login.php", "title" => "Login"],
     ["url" => "contact.php", "title" => "Registro"],
@@ -13,23 +13,21 @@ if(!empty($_SESSION)){
     if($_SESSION['rol'] == "admin"){
         $listadoItems =  [
             ["url" => "index.php", "title" => "Inicio"],
-            ["url" => "#", "title" => "Informacion"],
-            ["url" => "#", "title" => "Matricula"],
-            ["url" => "#", "title" => "Listado de estudiantes"],
+            ["url" => "information.php", "title" => "Informacion"],
+            ["url" => "registration.php", "title" => "Matricula"],
+            ["url" => "listRegistration.php", "title" => "Listado de estudiantes"],
             ["url" => "#", "title" => "Listado de profesores"],
             ["url" => "#", "title" => "Mantenimiento"],
             ["url" => "contact.php", "title" => "Contacto"],
-            ["url" => "login.php", "title" => "Login"],
-            ["url" => "contact.php", "title" => "Registro"],
+            ["url" => "logout.php", "title" => "Salir"],
         ];
     } else {
         $listadoItems =  [
             ["url" => "index.php", "title" => "Inicio"],
-            ["url" => "#", "title" => "Informacion"],
-            ["url" => "#", "title" => "Matricula"],
+            ["url" => "information.php", "title" => "Informacion"],
+            ["url" => "registration.php", "title" => "Matricula"],
             ["url" => "contact.php", "title" => "Contacto"],
-            ["url" => "login.php", "title" => "Login"],
-            ["url" => "contact.php", "title" => "Registro"],
+            ["url" => "logout.php", "title" => "Salir"]
         ];
     }
 
