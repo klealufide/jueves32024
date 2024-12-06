@@ -25,7 +25,7 @@ if (empty($_SESSION)) {
     <?php include('header.php') ?>
     <main>
         <section>
-            <form action="#" method="post" id="contactForm">
+            <form action="#" id="contactForm">
                 <h2>Contacto</h2>
                 <div class="form-group">
                     <label for="contact">Nombre de Contacto</label>

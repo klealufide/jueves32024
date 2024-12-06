@@ -16,7 +16,7 @@ if(!empty($_SESSION)){
             ["url" => "information.php", "title" => "Informacion"],
             ["url" => "registration.php", "title" => "Matricula"],
             ["url" => "listRegistration.php", "title" => "Listado de estudiantes"],
-            ["url" => "#", "title" => "Listado de profesores"],
+            ["url" => "listTeacher.php", "title" => "Listado de profesores"],
             ["url" => "#", "title" => "Mantenimiento"],
             ["url" => "contact.php", "title" => "Contacto"],
             ["url" => "logout.php", "title" => "Salir"],

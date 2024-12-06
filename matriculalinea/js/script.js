@@ -44,8 +44,30 @@ $(function () {
         }
 
         if (isValid) {
-            alert('Formulario enviado correctamente.');
-            // $(this).unbind('submit').submit();
+           // alert('Formulario enviado correctamente.');
+            fetch("procesar_contact.php",{
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    name: $('#contact').val().trim(),
+                    email: $('#email').val().trim(),
+                    subject: $('#subject').val().trim(),
+                    message: $('#message').val().trim()
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status == '00'){
+                    $('#contact').val("");
+                    $('#email').val("");
+                    $('#subject').val("");
+                    $('#message').val("");
+                }
+                alert(data.message);
+            })
+            .catch(error => console.log(error));
         }
     });
 
@@ -106,4 +128,66 @@ $(function () {
     $(".image-price").on("mouseleave", function(){
         $(this).find(".price").fadeOut();
     });
+
+    $('#error-teacher').hide();
+    $('#teacherForm').on('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        if ($('#name').val().trim() === '') {
+            $('#name').addClass('error');
+            $('#error-teacher').show();
+            isValid = false;
+        } else {
+            $('#name').removeClass('error');
+            $('#error-teacher').hide();
+        }
+
+       
+        if (isValid) {
+            fetch("teacherBE.php",{
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    action: "add",
+                    name: $('#name').val().trim()
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status == '00'){
+                    $('#name').val("");
+                    $('#listTeachers').append("<tr><td>"+data.name+"</td></tr>");
+                }
+                alert(data.message);
+            })
+            .catch(error => console.log(error));
+            
+        }
+    });
+
+    function getAllTeacher(){
+        fetch("teacherBE.php",{
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({
+                action: "getAll"
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.status == '00'){
+                data.teachers.forEach(element => {
+                    $('#listTeachers').append("<tr><td>"+element.name+"</td></tr>");
+                });
+            }
+        })
+        .catch(error => console.log(error));
+    }
+
+    getAllTeacher();
 })
