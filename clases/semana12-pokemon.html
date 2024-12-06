@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <h2>Pokemon a buscar</h2>
+            <div><input type="text" value="" name="pokemon" id="pokemon"></div>
+            <div><input type="button" value="Buscar" onclick="buscar()"></div>
+        </section>
+        <section>
+            <h2>Pokemon encontrado:</h2>
+            <p>
+            <div id="contenido"></div>
+            </p>
+        </section>
+    </main>
+</body>
+<script>
+    function buscar() {
+        const baseURL = 'https://pokeapi.co/api/v2/';
+        var nombre = document.getElementById("pokemon").value;
+
+
+        const obtenerPokemon = (nombrePokemon) => {
+            const url = baseURL + 'pokemon/' + nombrePokemon.toLowerCase();
+
+            fetch(url)
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error("Error en red "+ response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+
+                    document.getElementById("contenido").innerHTML = "<h4>"+data.name+"</h4><img src='"+data.sprites.front_default+"'>";
+                })
+                .catch(error => console.log(error));
+        }
+
+        obtenerPokemon(nombre);
+    }
+
+</script>
+
+</html>
