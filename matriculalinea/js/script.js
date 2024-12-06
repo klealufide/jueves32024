@@ -44,30 +44,30 @@ $(function () {
         }
 
         if (isValid) {
-           // alert('Formulario enviado correctamente.');
-            fetch("procesar_contact.php",{
-                method : 'POST',
-                headers : {
-                    'Content-Type' : 'application/json'
+            // alert('Formulario enviado correctamente.');
+            fetch("procesar_contact.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                body : JSON.stringify({
+                body: JSON.stringify({
                     name: $('#contact').val().trim(),
                     email: $('#email').val().trim(),
                     subject: $('#subject').val().trim(),
                     message: $('#message').val().trim()
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status == '00'){
-                    $('#contact').val("");
-                    $('#email').val("");
-                    $('#subject').val("");
-                    $('#message').val("");
-                }
-                alert(data.message);
-            })
-            .catch(error => console.log(error));
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status == '00') {
+                        $('#contact').val("");
+                        $('#email').val("");
+                        $('#subject').val("");
+                        $('#message').val("");
+                    }
+                    alert(data.message);
+                })
+                .catch(error => console.log(error));
         }
     });
 
@@ -121,11 +121,11 @@ $(function () {
         }
     });
     $('.price').hide();
-    $(".image-price").on("click", function(){
+    $(".image-price").on("click", function () {
         $(this).find(".price").fadeIn();
     });
 
-    $(".image-price").on("mouseleave", function(){
+    $(".image-price").on("mouseleave", function () {
         $(this).find(".price").fadeOut();
     });
 
@@ -143,50 +143,60 @@ $(function () {
             $('#error-teacher').hide();
         }
 
-       
+
         if (isValid) {
-            fetch("teacherBE.php",{
-                method : 'POST',
-                headers : {
-                    'Content-Type' : 'application/json'
-                },
-                body : JSON.stringify({
+            $.post("teacherBE.php",
+                {
                     action: "add",
                     name: $('#name').val().trim()
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status == '00'){
-                    $('#name').val("");
-                    $('#listTeachers').append("<tr><td>"+data.name+"</td></tr>");
-                }
-                alert(data.message);
-            })
-            .catch(error => console.log(error));
-            
-        }
-    });
-
-    function getAllTeacher(){
+                },
+                function (data, status) {
+                    let response = JSON.parse(data);
+                    if(response.status == '00'){
+                        $('#name').val("");
+                        $('#listTeachers').append("<tr><td>"+response.name+"</td></tr>");
+                    }
+                    alert(response.message);
+                });
+            /*
         fetch("teacherBE.php",{
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
             },
             body : JSON.stringify({
-                action: "getAll"
+                action: "add",
+                name: $('#name').val().trim()
             })
         })
         .then(response => response.json())
         .then(data => {
             if(data.status == '00'){
-                data.teachers.forEach(element => {
-                    $('#listTeachers').append("<tr><td>"+element.name+"</td></tr>");
-                });
+                $('#name').val("");
+                $('#listTeachers').append("<tr><td>"+data.name+"</td></tr>");
             }
+            alert(data.message);
         })
         .catch(error => console.log(error));
+        */
+
+        }
+    });
+
+    function getAllTeacher() {
+        $.post("teacherBE.php",
+            {
+                action: "getAll"
+            },
+            function (data, status) {
+                let response = JSON.parse(data);
+                if(response.status == '00'){
+                    response.teachers.forEach(element => {
+                        $('#listTeachers').append("<tr><td>" + element.name + "</td></tr>");
+                    });
+                }
+            });
+    
     }
 
     getAllTeacher();
